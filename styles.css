@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #5e9ec4 0%, #7db5d8 50%, #a8cce0 100%);
+    background-image: url(assets/pgi_bc.jpg);
+    background-size: cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -64,7 +65,7 @@ body::after {
 }
 
 .box {
-    background: #b3212c;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 25px;
     padding: 25px 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
@@ -218,7 +219,7 @@ body::after {
     margin-top: 25px;
     padding-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    color: black;
     font-size: 11px;
 }
 
