@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Hilangkan highlight biru saat tap di Android */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -10,24 +10,23 @@ body {
     background-image: url(assets/pgi_bc.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Agar background tetap saat discroll */
-    min-height: 100vh; /* PENTING: Gunakan min-height, bukan height */
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center vertikal jika layar tinggi */
-    padding: 20px 15px; /* Memberi ruang di HP agar tidak mepet pinggir */
+    align-items: center;
+    padding: 15px 10px;
     position: relative;
-    overflow-x: hidden; /* Hanya hilangkan scroll samping */
+    overflow-x: hidden;
 }
 
-/* Background Animations */
 body::before, body::after {
     content: '';
     position: absolute;
     border-radius: 50%;
     animation: float 8s ease-in-out infinite;
     z-index: 0;
-    pointer-events: none; /* Agar tidak mengganggu klik */
+    pointer-events: none;
 }
 
 body::before {
@@ -57,24 +56,22 @@ body::after {
 
 .container {
     width: 100%;
-    max-width: 420px; /* Lebar maksimal kartu */
+    max-width: 420px;
     position: relative;
     z-index: 1;
-    /* Menghapus max-height dan overflow agar scroll native browser bekerja */
-    margin: auto; 
+    margin: 10px auto;
 }
 
 .box {
-    background: rgba(255, 255, 255, 0.85); /* Sedikit lebih solid agar tulisan jelas */
-    backdrop-filter: blur(10px); /* Efek kaca modern (glassmorphism) */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
     border-radius: 24px;
-    padding: 30px 25px;
+    padding: 20px 18px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 100%;
 }
 
-/* Logo Section */
 .logo {
     margin-bottom: 20px;
     display: flex;
@@ -95,7 +92,6 @@ body::after {
     display: block;
 }
 
-/* Profile Info Section */
 .info {
     background-color: #ffffff;
     display: flex;
@@ -119,7 +115,7 @@ body::after {
 
 .info-text {
     flex: 1;
-    min-width: 0; /* Mencegah teks panjang merusak layout */
+    min-width: 0;
 }
 
 .title {
@@ -132,7 +128,7 @@ body::after {
 
 .subtitle {
     display: flex;
-    flex-direction: column; /* Stack vertikal agar lebih rapi di HP */
+    flex-direction: column;
     font-size: 13px;
     margin-bottom: 6px;
     gap: 2px;
@@ -158,11 +154,10 @@ body::after {
     border-radius: 4px;
 }
 
-/* Links Section */
 .links {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Jarak antar tombol */
+    gap: 12px;
     margin-bottom: 20px;
 }
 
@@ -184,7 +179,7 @@ body::after {
 .link-button:hover, .link-button:active {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    background: #fff9c4; /* Warna kuning halus saat hover */
+    background: #fff9c4;
     border-color: #fdd835;
 }
 
@@ -197,12 +192,18 @@ body::after {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #ffca28 0%, #ff6f00 100%);
-    color: white; /* Icon putih agar kontras */
+    color: white;
     border-radius: 10px;
     flex-shrink: 0;
 }
 
-/* Footer Section */
+.icon-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+}
+
 .footer {
     margin-top: 20px;
     padding-top: 15px;
@@ -220,53 +221,93 @@ body::after {
     font-weight: 700;
 }
 
-/* --- RESPONSIF (MEDIA QUERIES) --- */
-/* Kita sederhanakan menjadi satu breakpoint utama untuk HP Kecil */
-
 @media (max-width: 480px) {
     body {
-        padding: 10px; /* Kurangi padding body di HP kecil */
-        align-items: flex-start; /* Mulai dari atas agar tidak kepotong vertikal */
+        padding: 10px 8px;
     }
 
     .container {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 5px auto;
     }
 
     .box {
-        padding: 25px 15px;
+        padding: 18px 12px;
+        border-radius: 20px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        gap: 10px;
+    }
+
+    .logo-icon img {
+        width: 42px;
+    }
+
+    .logo-text img {
+        width: 110px;
     }
 
     .info {
-        flex-direction: row; /* Tetap baris, kecuali layar sangat sempit */
-        padding: 12px;
-        gap: 12px;
+        flex-direction: row;
+        padding: 10px;
+        gap: 10px;
+        margin-bottom: 18px;
     }
 
     .info-image img {
-        width: 75px;
-        height: 75px;
+        width: 70px;
+        height: 70px;
     }
 
     .title {
-        font-size: 16px;
+        font-size: 15px;
     }
 
-    .subtitle, .division p {
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .division p {
         font-size: 12px;
     }
     
     .link-button {
-        padding: 12px;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .link-button .icon {
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
+    }
+
+    .icon-img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .footer {
+        margin-top: 15px;
+        padding-top: 12px;
+        font-size: 10px;
     }
 }
 
-/* Untuk layar SANGAT kecil (misal iPhone SE 1st gen atau Galaxy Fold tertutup) */
 @media (max-width: 340px) {
+    .box {
+        padding: 15px 10px;
+    }
+
     .info {
         flex-direction: column;
         text-align: center;
+    }
+
+    .info-image img {
+        width: 65px;
+        height: 65px;
     }
 
     .info-text {
@@ -275,5 +316,25 @@ body::after {
     
     .subtitle {
         align-items: center;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .link-button {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .link-button .icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    .icon-img {
+        width: 15px;
+        height: 15px;
     }
 }
